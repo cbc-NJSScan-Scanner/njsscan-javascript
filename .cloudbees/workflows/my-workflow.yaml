@@ -3,7 +3,7 @@ kind: workflow
 name: My workflow
 on:
   schedule:
-    - cron: 35,36,37,38,39,40 * * * *
+    - cron: 40 10 * * *
 jobs:
   build:
     steps:
@@ -11,7 +11,7 @@ jobs:
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
-          if [ '${{ cloudbees.event.schedule.cron}}' = '35,36,37,38,39,40 * * * *'  ]; then
+          if [ '${{ cloudbees.event.schedule.cron}}' = '40 10 * * *'  ]; then
             echo "hello cron"
           else
             echo "hello world"
